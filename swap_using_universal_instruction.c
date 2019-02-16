@@ -19,7 +19,7 @@ int main()
 	int* A = &a;
 	int* B = &b;
 
-	// just for A <- B
+	// just for A = B
 	// don't set these
 	int t;
 	int t0;
@@ -30,62 +30,62 @@ int main()
 	int* T1 = &t1;
 	int* T2 = &t2;
 
-	if(UniversalIntruction(T, T, "T", "T"))
+	if(UniversalIntruction(T, T, "T", "T"))  // T = T - T = 0
 	{
 		goto zero;
 	}
 zero:
-	if(UniversalIntruction(T, A, "T", "A"))
+	if(UniversalIntruction(T, A, "T", "A"))  // T = T - A = 0 - A
 	{
 		goto one_dot_one;
 	}	
 one_dot_one:
-	if(UniversalIntruction(T0, T0, "T0", "T0"))
+	if(UniversalIntruction(T0, T0, "T0", "T0"))  // T0 = T0 - T0 = 0
 	{
 		goto one_dot_two;
 	}
 one_dot_two:
-	if(UniversalIntruction(T0, T, "T0", "T"))
+	if(UniversalIntruction(T0, T, "T0", "T"))  // T0 = T0 - T = 0 - (-A) = A
 	{
 		goto one;
 	}
 one:
-	if(UniversalIntruction(A, B, "A", "B"))
+	if(UniversalIntruction(A, B, "A", "B"))  // A = A - B
 	{
 		goto two;
 	}
 two:
-	if(UniversalIntruction(A, T0, "A", "T0"))
+	if(UniversalIntruction(A, T0, "A", "T0"))  // A = A - T0 = A - B - (A) = -B
 	{
 		goto three;
 	}
 three:
-	if(UniversalIntruction(T1, T1, "T1", "T1"))
+	if(UniversalIntruction(T1, T1, "T1", "T1"))  // T1 = T1 - T1 = 0
 	{
 		goto four;
 	}
 four:
-	if(UniversalIntruction(T1, A, "T1", "A"))
+	if(UniversalIntruction(T1, A, "T1", "A"))  // T1 = T1 - A = 0 - (-B) = B
 	{
 		goto five;
 	}
 five:
-	if(UniversalIntruction(A, A, "A", "A"))
+	if(UniversalIntruction(A, A, "A", "A"))  // A = A - A = 0
 	{
 		goto six;
 	}
 six:
-	if(UniversalIntruction(T2, T2, "T2", "T2"))
+	if(UniversalIntruction(T2, T2, "T2", "T2"))  // T2 = T2 - T2 = 0
 	{
 		goto seven;
 	}
 seven:
-	if(UniversalIntruction(T2, B, "T2", "B"))
+	if(UniversalIntruction(T2, B, "T2", "B"))  // T2 = T2 - B = 0 - B = -B
 	{
 		goto eight;
 	}
 eight:
-	if(UniversalIntruction(A, T2, "A", "T2"))
+	if(UniversalIntruction(A, T2, "A", "T2"))  // A = A - T2 = 0 - (-B) = B
 	{
 		printf("%s = %i, %s = %i\n", "A", *A, "B", *B);
 		return 0;
