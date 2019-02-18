@@ -35,6 +35,8 @@ int main()
 	int* T2 = &t2;
 
 	// A0 = A
+
+	// the comments are for A = B
 	if(UniversalIntruction(T, T, "T", "T"))  // T = T - T = 0
 	{
 		goto zero;
