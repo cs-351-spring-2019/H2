@@ -417,3 +417,85 @@ answer:
 
 	return 0;
 }
+
+/*
+H2 problem 1
+A = B + C;
+B = A + C;
+D = A - B;
+
+redo instructions for all five architectures
+a)
+	push A
+	push C
+	ADD
+	push B
+	push C
+	ADD
+	SUB
+
+b)
+	load A
+	Add C
+	store T0
+
+	load B   accumulator should = B
+	Add C
+	store T1
+
+	load T0
+	subtract T1
+	
+	store T2
+
+C)
+
+	subtract T0, T0
+
+	subtract T1, T1
+
+	subtract T2, T2
+
+	add T0, B
+	add T0, C
+
+	add T1, A
+	add T1, C
+
+	add T2, T0
+	subtract T2, T1   T2 = A - B
+
+
+
+D)
+
+	Add T0, B, C
+	Add T1, A, C
+	subtract T2, T0, T1
+
+
+E)
+	LD R1, A
+	LD R2, B
+	LD R3, C
+	LD R4, D
+
+	
+	Add R1, R2, R3
+	Add R2, A, C
+
+	Add 
+
+
+second part
+calculate the bytes required to hold each instruction, and the number of bytes(read or written) for each instruction
+add up byte size for all instructions for each architecture
+
+
+third part
+use the sizes found in part 2 to find the most efficient architecture by using code only bytes measured
+
+fourth part
+	similar to third part except use all bytes measured
+
+*/
