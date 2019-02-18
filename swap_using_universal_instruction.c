@@ -184,8 +184,8 @@ nine1:
 			// swap A, B
 
 
-int c = 0;
-int* C = &c;
+	int c = 0;
+	int* C = &c;
 
 
 
