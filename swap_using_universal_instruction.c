@@ -426,65 +426,74 @@ D = A - B;
 
 redo instructions for all five architectures
 a)
-	push A
 	push C
-	ADD
+	push C
 	push B
+
+	Add
+	Add
+
+
 	push C
-	ADD
-	SUB
-
-b)
-	load A
-	Add C
-	store T0
-
-	load B   accumulator should = B
-	Add C
-	store T1
-
-	load T0
-	subtract T1
+	push B
+	Add
+	Subtract
 	
-	store T2
+b)
+
+	load B
+	add C
+
+	store M_A   // A = B + C
+
+	load M_A
+	add C
+	store M_B  // B = A + C
+
+	load M_A
+	subtract M_B
+
+	store M_D   // D = A - B
+
 
 C)
 
-	subtract T0, T0
+	subtract M_A, M_A
 
-	subtract T1, T1
+	subtract M_B, M_B
 
-	subtract T2, T2
+	subtract M_D, M_D   // M_A = M_B = M_D
 
-	add T0, B
-	add T0, C
+	add M_A, B
+	add M_A, C  // M_A = B + C
 
-	add T1, A
-	add T1, C
+	add M_B, M_A
+	add M_B, C   // M_B = M_A + C
 
-	add T2, T0
-	subtract T2, T1   T2 = A - B
+	add M_D, M_A
+	subtract M_D, M_B  // M_D = M_A - M_B
 
 
 
 D)
 
-	Add T0, B, C
-	Add T1, A, C
-	subtract T2, T0, T1
+	Add A, B, C
+	Add B, A, C
+	subtract D, A, B
 
 
 E)
-	LD R1, A
-	LD R2, B
-	LD R3, C
-	LD R4, D
+	LD R_A, A
+	LD R_B, B
+	LD R_C, C
+	LD R_D, D
 
-	
-	Add R1, R2, R3
-	Add R2, A, C
+	add R_A, R_B, R_C
+	add R_B, R_A, R_C
 
-	Add 
+	subtract R_D, R_A, R_B
+
+	st R_D, M
 
 
 second part
